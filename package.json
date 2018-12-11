@@ -1,0 +1,29 @@
+{
+  "name": "wp-package",
+  "version": "1.0.0",
+  "description": "Wordpress project package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fillrad/wp-package.git"
+  },
+  "author": "Filatov K.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fillrad/wp-package/issues"
+  },
+  "homepage": "https://github.com/fillrad/wp-package#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-zip": "^4.2.0"
+  }
+}
