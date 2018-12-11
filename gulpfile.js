@@ -2,7 +2,8 @@
 
 // VARS
 
-var themeName    = 'ghhghghg'; // Folder theme name in Wordpress directory
+var OSname       = 'default.com'; // Open server site name
+var themeName    = 'default'; // Folder theme name in Wordpress directory
 var gulp         = require('gulp'),
 	sass         = require('gulp-sass'), 
     autoprefixer = require('gulp-autoprefixer'), 
@@ -10,7 +11,8 @@ var gulp         = require('gulp'),
     concat       = require('gulp-concat'),
     browserSync  = require('browser-sync'),
     zip          = require('gulp-zip'),
-    del          =  require('del');
+    del          = require('del'),
+    cache        = require('gulp-cache');
 
 // TASKS
 
@@ -49,10 +51,8 @@ gulp.task('clear', function(){
 
 gulp.task('browser-sync', function(){
 	browserSync({
-        server: {
-            baseDir: 'theme' // wp
-        },
-     // notify: faslse
+        proxy: '' + OSname + '',
+        notify: false
     });
 });
 
@@ -62,7 +62,7 @@ gulp.task('theme', ['clear', 'sass', 'css', 'script'], function(){
         '!theme/sass/**/*',
         'theme/**/*',
     ])
-    .pipe(gulp.dest('wp/wp-content/themes/' + themeName + ''))
+    .pipe(cache(gulp.dest('wp/wp-content/themes/' + themeName + '')))
 });
 
 gulp.task('build', ['theme'], function(){
@@ -73,19 +73,21 @@ gulp.task('build', ['theme'], function(){
 });
 
 gulp.task('watch', ['browser-sync', 'build'], function(){
-	gulp.watch(['theme/**/*.sass','theme/**/*.js','theme/**/*.php'], ['build', browserSync.reload])
+    gulp.watch('theme/sass/**/*.scss', ['build', browserSync.reload])
+    gulp.watch('theme/**/*.php', ['build', browserSync.reload])
+    gulp.watch('theme/js/common.js', ['build', browserSync.reload])
 });
 
 gulp.task('zip-theme', ['build'], function(){
     return gulp.src('wp/wp-content/themes/' + themeName + '/**/*')
     .pipe(zip('' + themeName + '.zip'))
-    .pipe(gulp.dest('zip'))
+    .pipe(gulp.dest('zipFiles'))
 });
 
 gulp.task('zip-wp', ['build'], function(){
     return gulp.src('wp/**/*')
     .pipe(zip('full-wp-' + themeName + '.zip'))
-    .pipe(gulp.dest('zip'))
+    .pipe(gulp.dest('zipFiles'))
 });
 
 gulp.task('default', ['watch']);

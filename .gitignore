@@ -1,10 +1,11 @@
 /node_modules/
 /dist/
 /theme/libs/
+!/theme/libs/bootstrap/
 /.git/
 /app/css/
 /wp/
-/zip/
+/zipFiles/
 /**/package-lock.json
 /**/Thumbs.db
 /**/*.DS_Store
