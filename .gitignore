@@ -1,10 +1,10 @@
 /node_modules/
-/dist/
-/theme/libs/
+/theme/libs/*
 !/theme/libs/bootstrap/
+!/theme/libs/default/
 /.git/
-/app/css/
-/wp/
+/wp/*
+!/wp/README.md
 /zipFiles/
 /**/package-lock.json
 /**/Thumbs.db

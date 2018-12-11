@@ -11,8 +11,7 @@ var gulp         = require('gulp'),
     concat       = require('gulp-concat'),
     browserSync  = require('browser-sync'),
     zip          = require('gulp-zip'),
-    del          = require('del'),
-    cache        = require('gulp-cache');
+    del          = require('del');
 
 // TASKS
 
@@ -30,16 +29,18 @@ gulp.task('sass', function(){
 
 gulp.task('css', function(){
 	return gulp.src([
-     // '/libs/Bootstrap/grid-1140/bootstrap-grid.min.css', // CSS llibraries files
-        'theme/libs/Bootstrap/grid-1560/bootstrap-grid.min.css',
+    //  '/libs/Bootstrap/grid-1140/bootstrap-grid.min.css', // CSS llibraries files
+    //  'theme/libs/Bootstrap/grid-1560/bootstrap-grid.min.css',
+		'theme/libs/default/default.css',
     ])
-	.pipe(concat('css-libraries.css'))
+	.pipe(concat('libraries.css'))
     .pipe(gulp.dest('theme/css'))
 });
 
 gulp.task('script', function(){
 	return gulp.src([
-        'theme/libs/jquery/dist/jquery.min.js', // JS llibraries files
+    //  'theme/libs/jquery/dist/jquery.min.js', // JS llibraries files
+		'theme/libs/default/default.js',
     ])
 	.pipe(concat('libraries.js'))
     .pipe(gulp.dest('theme/js'))
@@ -62,7 +63,7 @@ gulp.task('theme', ['clear', 'sass', 'css', 'script'], function(){
         '!theme/sass/**/*',
         'theme/**/*',
     ])
-    .pipe(cache(gulp.dest('wp/wp-content/themes/' + themeName + '')))
+    .pipe(gulp.dest('wp/wp-content/themes/' + themeName + ''))
 });
 
 gulp.task('build', ['theme'], function(){
