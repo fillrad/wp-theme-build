@@ -29,7 +29,7 @@ gulp.task('sass', function(){
 
 gulp.task('css', function(){
 	return gulp.src([
-    //  '/libs/Bootstrap/grid-1140/bootstrap-grid.min.css', // CSS llibraries files
+    //  'theme/libs/Bootstrap/grid-1140/bootstrap-grid.min.css', // CSS llibraries files
     //  'theme/libs/Bootstrap/grid-1560/bootstrap-grid.min.css',
 		'theme/libs/default/default.css',
     ])
@@ -47,7 +47,7 @@ gulp.task('script', function(){
 });
 
 gulp.task('clear', function(){
-    return del.sync('wp/wp-content/themes/' + themeName + '')
+    del.sync(['wp/wp-content/themes/' + themeName + '/**', '!wp/wp-content/themes/' + themeName + '', '!wp/wp-content/themes/' + themeName + '/languages/**']);
 });
 
 gulp.task('browser-sync', function(){
@@ -59,6 +59,7 @@ gulp.task('browser-sync', function(){
 
 gulp.task('theme', ['clear', 'sass', 'css', 'script'], function(){
     return gulp.src([
+		'!theme/languages/**/*',
         '!theme/libs/**/*',
         '!theme/sass/**/*',
         'theme/**/*',
