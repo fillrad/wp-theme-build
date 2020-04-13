@@ -23,7 +23,12 @@
     "gulp-autoprefixer": "^6.0.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglifyjs": "^0.6.2",
     "gulp-zip": "^4.2.0"
+  },
+  "dependencies": {
+    "browserslist": "^4.11.1",
+    "caniuse-lite": "^1.0.30001041"
   }
 }

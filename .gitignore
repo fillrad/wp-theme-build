@@ -1,7 +1,6 @@
 /node_modules/
-/theme/libs/*
-!/theme/libs/bootstrap/
-!/theme/libs/default/
+/assets/*
+!/assets/bootstrap/
 /.git/
 /wp/*
 !/wp/README.md

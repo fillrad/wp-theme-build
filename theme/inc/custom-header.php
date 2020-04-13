@@ -8,33 +8,39 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Default
+ * @package Main_theme
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses default_header_style()
+ * @uses main_theme_header_style()
  */
-function default_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'default_custom_header_args', array(
-		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
-		'height'                 => 250,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'default_header_style',
-	) ) );
+function main_theme_custom_header_setup() {
+	add_theme_support(
+		'custom-header',
+		apply_filters(
+			'main_theme_custom_header_args',
+			array(
+				'default-image'      => '',
+				'default-text-color' => '000000',
+				'width'              => 1000,
+				'height'             => 250,
+				'flex-height'        => true,
+				'wp-head-callback'   => 'main_theme_header_style',
+			)
+		)
+	);
 }
-add_action( 'after_setup_theme', 'default_custom_header_setup' );
+add_action( 'after_setup_theme', 'main_theme_custom_header_setup' );
 
-if ( ! function_exists( 'default_header_style' ) ) :
+if ( ! function_exists( 'main_theme_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see default_custom_header_setup().
+	 * @see main_theme_custom_header_setup().
 	 */
-	function default_header_style() {
+	function main_theme_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
@@ -56,9 +62,9 @@ if ( ! function_exists( 'default_header_style' ) ) :
 			.site-description {
 				position: absolute;
 				clip: rect(1px, 1px, 1px, 1px);
-			}
-		<?php
-		// If the user has set a custom color for the text use that.
+				}
+			<?php
+			// If the user has set a custom color for the text use that.
 		else :
 			?>
 			.site-title a,
