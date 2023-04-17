@@ -1,34 +1,24 @@
 {
-  "name": "wp-package",
+  "name": "birthday.fa.loc",
   "version": "1.0.0",
-  "description": "Wordpress project package",
-  "main": "index.js",
+  "description": "",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/fillrad/wp-package.git"
-  },
-  "author": "Filatov K.",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/fillrad/wp-package/issues"
-  },
-  "homepage": "https://github.com/fillrad/wp-package#readme",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
+    "browser-sync": "^2.27.7",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-uglifyjs": "^0.6.2",
-    "gulp-zip": "^4.2.0"
-  },
-  "dependencies": {
-    "browserslist": "^4.11.1",
-    "caniuse-lite": "^1.0.30001041"
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-zip": "^5.1.0",
+    "sass": "^1.43.4"
   }
 }

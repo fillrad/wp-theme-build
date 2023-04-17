@@ -8,39 +8,39 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Main_theme
+ * @package Default
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses main_theme_header_style()
+ * @uses default_header_style()
  */
-function main_theme_custom_header_setup() {
+function default_custom_header_setup() {
 	add_theme_support(
 		'custom-header',
 		apply_filters(
-			'main_theme_custom_header_args',
+			'default_custom_header_args',
 			array(
 				'default-image'      => '',
 				'default-text-color' => '000000',
 				'width'              => 1000,
 				'height'             => 250,
 				'flex-height'        => true,
-				'wp-head-callback'   => 'main_theme_header_style',
+				'wp-head-callback'   => 'default_header_style',
 			)
 		)
 	);
 }
-add_action( 'after_setup_theme', 'main_theme_custom_header_setup' );
+add_action( 'after_setup_theme', 'default_custom_header_setup' );
 
-if ( ! function_exists( 'main_theme_header_style' ) ) :
+if ( ! function_exists( 'default_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see main_theme_custom_header_setup().
+	 * @see default_custom_header_setup().
 	 */
-	function main_theme_header_style() {
+	function default_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*
